@@ -13,13 +13,13 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${myKey}`;
 export async function fetchNotes(search: string, page: number, tag?: string ) {
     try {
         const response = await axios.get<NotesHttpResponse>("/notes", {
-            params: {
-                ...(tag ? { tag } : {}),
-                search,
-                page,
-                perPage: 12,
-            },
-        })
+        params: {
+            ...(tag ? { tag } : {}),
+            search,
+            page,
+            perPage: 12,
+        },
+    })
         return response.data;
     } catch {
         throw new Error("Fetch tasks failed");
@@ -36,13 +36,13 @@ export async function createNote(newNote: NewNote):Promise<Note> {
 }
 
     export async function deleteNote(noteId: string) {
-        try {
-            const response = await axios.delete<Note>(`/notes/${noteId}`)
-            return response.data;
-        } catch {
-            throw new Error("Delete task failed");
-        }
+    try {
+        const response = await axios.delete<Note>(`/notes/${noteId}`)
+        return response.data;
+    } catch {
+        throw new Error("Delete task failed");
     }
+}
 
 export async function fetchNoteById(noteId:string) {
     try {

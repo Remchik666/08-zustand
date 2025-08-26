@@ -5,15 +5,15 @@ const SidebarNotes = async () => {
     const tags = ['All', 'Work', 'Personal', 'Meeting', 'Shopping', 'Todo'];
 
     return (
-        <ul className={css.menuList}>
-            {tags.map((tag) => (
+    <ul className={css.menuList}>
+        {tags.map((tag) => (
             <li className={css.menuItem} key={tag}>
                 <Link href={`/notes/filter/${tag}`} className={css.menuLink}>
                     {tag}
                 </Link>
             </li>
-            ))}
-        </ul>
+        ))}
+    </ul>
     )
 }
 
